@@ -1,0 +1,84 @@
+<head>
+	<meta charset="utf-8"/>
+	<title>免责声明</title>
+	<style>
+	body {
+		text-align: center;
+		background-color: #eeeeee;
+		padding: 20px 0;
+	}
+	
+	ol {
+		text-align: left;
+		max-width: 730px;
+		line-height: 27px;
+		margin: 0 auto;
+	}
+	
+	b[red] {
+		color: red;
+	}
+	
+	input[type="submit"] {
+		border-radius: 2px;
+		border: none;
+		background-color: #4389ff;
+		color: #fafafa;
+		font-size: 20px;
+		cursor: pointer;
+		transition: box-shadow 0.3s;
+		box-shadow: 1px 1px 10px rgba(32, 32, 32, 0.2);
+		padding: 10px 20px;
+	}
+	
+	input[type="submit"]:hover {
+		box-shadow: 1px 1px 10px rgba(32, 32, 32, 0.4);
+	}
+	</style>
+	<script>
+	function agree_tos() {
+		document.cookie = 'agree_tos=20200309;expires=' + new Date(new Date().getTime() + 86400000 * 60);
+		location.href = '/';
+	}
+	</script>
+</head>
+<body>
+	<h1>免责声明(2020-03-09)</h1>
+	<ol>
+		<li>
+			您当前访问的网站并非真正的 <a href="https://archiveofourown.org/">https://archiveofourown.org/</a>(下称 AO3) 而是一个反向代理(又称镜像站)
+		</li>
+		<li>
+			您通过该反向代理提交的所有数据(从技术上来讲)均可以被我们截获或修改
+		</li>
+		<li>
+			<b>我们承诺在任何情况下都不会搜集/储存您提交到该反向代理的任何信息, 但是我们仍然不建议您在该反向代理上执行登录等敏感操作</b>
+		</li>
+		<li>
+			该反向代理将向 AO3 提供您的 IP 地址, 并且尽可能的原样转发您与 AO3 服务器之间的通信. 为了确保您能正常使用该反向代理, 我们将对 AO3 发送给您的数据进行一些修改, 如替换 https://archiveofourown.org/ 为该反向代理的域名
+		</li>
+		<li>
+			<b>由于众所周知的原因, 我们无法保证服务的可用性.</b> 但我们将尽可能为您提供不中断的服务.
+		</li>
+		<li>
+			<b red>此反向代理设置的初衷是帮助各位创作者自由的进行创作, 但是您的作品不应违反您所在地区的法律法规</b>
+		</li>
+		<li>
+			<b red>我们不为您的行为及您因使用该反向代理而造成的任何后果或负责</b>
+		</li>
+		<li>
+			为了避免滥用, 该反向代理不提供 评论/添加Kudos/申请注册 功能
+		</li>
+		<li>
+			我们采用行业标准的安全技术(HTTPS)对传输进行加密, 但是 CDN 到我们服务器的连接并没有经过加密并且可能受到攻击
+		</li>
+		<li>
+			我们会使用 Cookies 技术来得知您是否已同意我们的 TOS, 并且会注册一个 ServiceWorker 增强您的使用体验
+		</li>
+		<li>
+			此项目相关文件及搭建教程完全托管于 <a href="https://github.com/ExcitedCodes/URLOfOurOwn">GitHub</a>, 欢迎参与对本项目的贡献. 如有其他疑问, 请联系 <a href="https://t.me/ExcitedCodes">@ExcitedCodes</a>
+		</li>
+	</ol>
+	<h4 red>继续使用该反向代理将视为您已仔细阅读、理解并且无条件完全同意以上条款, 并且您为您的行为完全负责</h4>
+	<input type="submit" onclick="agree_tos()" value="同意并继续" />
+</body>

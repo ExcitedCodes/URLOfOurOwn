@@ -1,0 +1,95 @@
+<head>
+	<meta charset="utf-8"/>
+	<title>页面加载失败</title>
+	<style>
+	body {
+		text-align: center;
+		background-color: #eeeeee;
+		padding: 20px 0;
+	}
+
+	ul {
+		text-align: left;
+		line-height: 27px;
+	}
+
+	.content {
+		max-width: 500px;
+		margin: 0 auto;
+	}
+
+	[red] {
+		color: red;
+	}
+
+	[orange] {
+		color: orange;
+	}
+
+	[green] {
+		color: green;
+	}
+
+	input[type="submit"] {
+		border-radius: 2px;
+		border: none;
+		background-color: #4389ff;
+		color: #fafafa;
+		font-size: 20px;
+		cursor: pointer;
+		padding: 10px 20px;
+		transition: box-shadow 0.3s;
+		box-shadow: 1px 1px 10px rgba(32, 32, 32, 0.2);
+	}
+
+	input[type="submit"]:not(:disabled):hover {
+		box-shadow: 1px 1px 10px rgba(32, 32, 32, 0.4);
+	}
+
+	input[type="submit"]:disabled {
+		background-color: gray;
+	}
+	</style>
+	<script>
+	function checkNetwork() {
+		const check = document.getElementById('check');
+		const status = document.getElementById('status');
+		check.disabled = true;
+		check.value = '请稍候...';
+		fetch('https://raw.githubusercontent.com/ExcitedCodes/URLOfOurOwn/master/urls.jsonc')
+			.then(r => r.json())
+			.then(json => {
+				check.value = '检查完毕';
+				let message = '';
+				if (json.available.length == 0) {
+					message += '<li red>我们所有的代理域名都被屏蔽了, 请关注 <a href="https://github.com/ExcitedCodes/URLOfOurOwn/">这个项目</a> 的动态并耐心等待我们的更新</li>';
+				} else if (json.available.some(b => b == location.hostname)) {
+					message += '<li orange>您当前访问的域名还在我们的可用代理列表中, 这意味着该域名可能刚被屏蔽不久. 我们建议您 刷新重试 或 到 <a href="https://github.com/ExcitedCodes/URLOfOurOwn/">这里</a> 提交一个 Issue 告知我们此问题</li>';
+				} else {
+					message += '<li green>找到了新的代理域名: <a href="https://' + (json.available[0] == location.hostname ? json.available[1] : json.available[0]) + '">点击这里访问</a></li>';
+				}
+				if (json.blocked.some(b => b == location.hostname)) {
+					message += '<li red>您当前访问的域名已遭到不可抗力因素的屏蔽</li>';
+				}
+				status.innerHTML = message;
+			})
+			.catch(e => {
+				check.disabled = false;
+				check.value = '自动检查问题';
+				status.innerHTML = '<li orange>无法访问 GitHub, 这可能说明您的网络出现了问题, 请检查网络连接</li>';
+			});
+	}
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('/sw.js');
+	}
+	</script>
+</head>
+<body>
+	<div class="content">
+		<h1>页面加载失败</h1>
+		这可能是因为您的网络出现了问题 或 该反向代理遭到屏蔽
+		<ul id="status"></ul>
+		<input type="submit" onclick="location.reload()" value="刷新重试" />
+		<input type="submit" id="check" onclick="checkNetwork()" value="自动检查问题" />
+	</div>
+</body>
