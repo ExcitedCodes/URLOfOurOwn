@@ -30,9 +30,10 @@ _如果您觉得它不能称之为一个"项目", 您可以直接提交PR修改�
       * Ubuntu: `sudo apt install -y git vim`
       * CentOS: `sudo yum install -y git vim`
 3. 从我们的存储库下载所需的文件, 在任意路径执行 `git clone https://github.com/ExcitedCodes/URLOfOurOwn.git`
-4. 准备 Nginx 配置文件, 执行 `cp URLOfOurOwn/proxy/* /etc/nginx/conf.d`
-5. 准备一个放置代理文件的路径, 您可以直接执行 `cp -r URLOfOurOwn/ao3 /var/www/html/ao3`
-6. 修改配置文件使其符合您的域名, __请全程使用英文输入法并注意不要误删分号__, 执行 `vim /etc/nginx/conf.d/site.conf`
+4. 准备 Nginx 配置文件, 执行 `sudo cp URLOfOurOwn/proxy/nginx/* /etc/nginx/conf.d`
+5. 准备一个放置代理文件的路径, 您可以直接执行 `sudo cp -r URLOfOurOwn/proxy/ao3 /var/www/html/ao3`
+   * 注意调整文件权限, 执行 `sudo chmod -R 755 /var/www/html/ao3`
+6. 修改配置文件使其符合您的域名, __请全程使用英文输入法并注意不要误删分号__, 执行 `sudo vim /etc/nginx/conf.d/site.conf`
    * 按一下 i 进入编辑模式, 您应该会注意到左下角出现 `-- INSERT --` 字样
    * 在第3行左右找到 `server_name <Fill_Domain>;` 并将其替换为您的域名, 如 `server_name  ao3.wtf;`
    * 在第18行左右找到 `root <Fill_AO3>;` 并将其替换为第5步中的路径. 如果您直接执行了那行路径, 请填写 `/var/www/html/ao3`
