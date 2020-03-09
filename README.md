@@ -38,9 +38,9 @@ URL of Our Own 是面对 [archiveofourown.org ](https://archiveofourown.org)（�
 
 3. 使用 `git clone` 命令复制所需的文件：在任意路径执行 `git clone https://github.com/ExcitedCodes/URLOfOurOwn.git`
 
-4. 准备 Nginx 配置文件：在当前执行 `cp URLOfOurOwn/proxy/* /etc/nginx/conf.d`
+4. 准备 Nginx 配置文件：在当前执行 `cp URLOfOurOwn/proxy/nginx/* /etc/nginx/conf.d`
 
-5. 准备一个放置代理文件的路径，可以直接在同一目录执行 `cp -r URLOfOurOwn/ao3 /var/www/html/ao3`；若安装方式不同，`Nginx` 的安装目录也可能会不同；若 `Nginx` 是用其他方式安装，你可以使用 `whereis nginx` 命令快速查找 `Nginx` 的位置
+5. 准备一个放置代理文件的路径，可以直接在同一目录执行 `cp -r URLOfOurOwn/proxy/ao3 /var/www/html/ao3`；若安装方式不同，`Nginx` 的安装目录也可能会不同；若 `Nginx` 是用其他方式安装，你可以使用 `whereis nginx` 命令快速查找 `Nginx` 的位置
 
 6. 修改配置文件使其符合你的域名，请全程使用**英文输入方式**，并注意不要误删任何无关的字符；执行 `vim /etc/nginx/conf.d/site.conf`（也可以使用任何其他你喜爱的编辑器），下文介绍 `vim` 的使用方法：
    * 按一下 i 进入编辑模式，你应该会注意到左下角出现 `-- INSERT --` 字样
