@@ -24,7 +24,11 @@ _如果您觉得它不能称之为一个"项目", 您可以直接提交PR修改�
    * _我们建议您使用主流 Linux 发行版, 如 Ubuntu、CentOS 等_
    * _我们建议您到 __提供 Whois Proxy(又称 Whois Privacy, 域名隐私保护, WhoisGuard 等) 服务的国外域名注册商__ 注册域名并开启 Whois Proxy_
    * _我们建议您到 [Cloudflare](https://cloudflare.com/) 申请一个账户并添加您的域名 ([官方文档](https://support.cloudflare.com/hc/zh-cn/articles/201720164-%E5%88%9B%E5%BB%BA-Cloudflare-%E5%B8%90%E6%88%B7%E5%B9%B6%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99))_
-2. 接下来, 在您的服务器上安装 [Nginx](https://nginx.org/),  请参阅 [安装Nginx](#%E5%AE%89%E8%A3%85-nginx) 一节
+2. 接下来, 在您的服务器上安装必要软件
+   * [Nginx](https://nginx.org/),  请参阅 [安装Nginx](#%E5%AE%89%E8%A3%85-nginx) 一节
+   * Git, Vim 等
+      * Ubuntu: `sudo apt install -y git vim`
+      * CentOS: `sudo yum install -y git vim`
 3. 从我们的存储库下载所需的文件, 在任意路径执行 `git clone https://github.com/ExcitedCodes/URLOfOurOwn.git`
 4. 准备 Nginx 配置文件, 执行 `cp URLOfOurOwn/proxy/* /etc/nginx/conf.d`
 5. 准备一个放置代理文件的路径, 您可以直接执行 `cp -r URLOfOurOwn/ao3 /var/www/html/ao3`
