@@ -46,7 +46,7 @@ URL of Our Own 是面对 [archiveofourown.org ](https://archiveofourown.org)（�
    * 按一下 i 进入编辑模式，你应该会注意到左下角出现 `-- INSERT --` 字样
    * 在第3行左右找到 `server_name <Fill_Domain>;` 并将其替换为你的域名，如 `server_name  ao3.wtf;`
    * 在第18行左右找到 `root <Fill_AO3>;` 并将其替换为第5步中的路径. 如果你直接执行了那行路径，请输入 `/var/www/html/ao3`
-   * 此处暂时不提供配置缓存的教程，因为 AO3 的登录态会被附加在页面中
+   * 我们不提供配置缓存的教程也不建议您配置缓存, 因为这可能引发一系列安全问题
    * 如果你 __不__ 使用 Cloudflare:
      * 找到 `$http_cf_connecting_ip` 并替换为 `$remote_addr`
      * 找到文件末尾的 `include conf.d/cloudflare.inc;` 和 `deny all;` 两行并在最前面加上 `#`

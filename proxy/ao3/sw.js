@@ -1,6 +1,6 @@
 (function () {
 	const cacheVersion = '20200307-resource';
-	const offlineVersion = '202003071356-offline';
+	const offlineVersion = '20200315-offline';
 
 	const offline = '/offline.html';
 	const offlineMatch = /^https:\/\/[^\/]+\/offline\.html$/;
@@ -13,9 +13,7 @@
 		/^https:\/\/[^\/]+\/favicon.ico$/,
 		/^https:\/\/[^\/]+\/images\//,
 		/^https:\/\/[^\/]+\/javascripts\//,
-		/^https:\/\/[^\/]+\/stylesheets\//,
-		/^https:\/\/[^\/]+\/ajax\.googleapis\.com\/ajax\/libs\//,
-		/^https:\/\/js-agent\.newrelic\.com\//,
+		/^https:\/\/[^\/]+\/stylesheets\//
 	];
 
 	self.addEventListener('fetch', (event) => {
@@ -57,7 +55,7 @@
 			.then(() => {
 				caches.match(offline).then(r => {
 					if (!r) {
-						return caches.open(offlineVersion).then((cache) => cache.add('/offline.html'));
+						return caches.open(offlineVersion).then((cache) => cache.add(offline));
 					}
 				});
 			}));
