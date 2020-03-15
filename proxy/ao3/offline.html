@@ -56,17 +56,20 @@
 		const status = document.getElementById('status');
 		check.disabled = true;
 		check.value = '请稍候...';
-		fetch('https://raw.githubusercontent.com/ExcitedCodes/URLOfOurOwn/master/urls.jsonc')
+		fetch('https://raw.githubusercontent.com/ExcitedCodes/URLOfOurOwn/master/urls.jsonc?t=' + new Date().getTime())
 			.then(r => r.json())
 			.then(json => {
 				check.value = '检查完毕';
 				let message = '';
 				if (json.available.length == 0) {
 					message += '<li red>我们所有的代理域名都被屏蔽了, 请关注 <a href="https://github.com/ExcitedCodes/URLOfOurOwn/">这个项目</a> 的动态并耐心等待我们的更新</li>';
-				} else if (json.available.some(b => b == location.hostname)) {
-					message += '<li orange>您当前访问的域名还在我们的可用代理列表中, 这意味着该域名可能刚被屏蔽不久. 我们建议您 刷新重试 或 到 <a href="https://github.com/ExcitedCodes/URLOfOurOwn/">这里</a> 提交一个 Issue 告知我们此问题</li>';
 				} else {
-					message += '<li green>找到了新的代理域名: <a href="https://' + (json.available[0] == location.hostname ? json.available[1] : json.available[0]) + '">点击这里访问</a></li>';
+					if (json.available.some(b => b == location.hostname)) {
+						message += '<li orange>您当前访问的域名还在我们的可用代理列表中, 这意味着该域名可能刚被屏蔽不久. 我们建议您 刷新重试 或 到 <a href="https://github.com/ExcitedCodes/URLOfOurOwn/">这里</a> 提交一个 Issue 告知我们此问题</li>';
+					}
+					if (json.available.some(b => b != location.hostname)) {
+						message += '<li green>找到了新的代理域名: <a href="https://' + (json.available[0] == location.hostname ? json.available[1] : json.available[0]) + '">点击这里访问</a></li>';
+					}
 				}
 				if (json.blocked.some(b => b == location.hostname)) {
 					message += '<li red>您当前访问的域名已遭到不可抗力因素的屏蔽</li>';

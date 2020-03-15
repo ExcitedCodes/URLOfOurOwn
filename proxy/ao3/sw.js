@@ -1,6 +1,6 @@
 (function () {
 	const cacheVersion = '20200307-resource';
-	const offlineVersion = '20200315-offline';
+	const offlineVersion = '20200316-offline';
 
 	const offline = '/offline.html';
 	const offlineMatch = /^https:\/\/[^\/]+\/offline\.html$/;
