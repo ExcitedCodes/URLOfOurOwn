@@ -5,7 +5,7 @@ URL of Our Own 是面对 [archiveofourown.org ](https://archiveofourown.org)（�
 
 ## 如何使用?
 
-演示站点：[https://ao3.wtf](https://ao3.wtf)
+演示站点：~[https://ao3.wtf](https://ao3.wtf)~ _(我们采用了全新的边缘计算代理模式, 此项目仍会继续维护但我们不再提供演示站点.)_
 
 ### 备用站点
 
