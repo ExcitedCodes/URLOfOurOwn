@@ -57,7 +57,7 @@ URL of Our Own 是面对 [archiveofourown.org ](https://archiveofourown.org)（�
 
 8. 解析域名到你的服务器 IP；可以使用 `curl ipv4.ip.sb` 命令快速查询服务器 IP
 
-9. 现在，你的代理网站应该可以工作了。尝试在浏览器中访问它，如果它工作并且你愿意与我们共享这一域名，我们建议你到[这里](https://github.com/ExcitedCodes/URLOfOurOwn/issues)提交你的域名作为备用站点的一部分。
+9. 现在，你的代理网站应该可以工作了。~尝试在浏览器中访问它，如果它工作并且你愿意与我们共享这一域名，我们建议你到[这里](https://github.com/ExcitedCodes/URLOfOurOwn/issues)提交你的域名作为备用站点的一部分。~ 详细参见 [#6](https://github.com/ExcitedCodes/URLOfOurOwn/issues/6#issuecomment-646024478)
 
 ### 安装 Nginx
 
