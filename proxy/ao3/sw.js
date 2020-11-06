@@ -1,6 +1,6 @@
 (function () {
-	const cacheVersion = '20200307-resource';
-	const offlineVersion = '20200316-offline';
+	const cacheVersion = '20201106-resource';
+	const offlineVersion = '20201106-offline';
 
 	const offline = '/offline.html';
 	const offlineMatch = /^https:\/\/[^\/]+\/offline\.html$/;
@@ -26,7 +26,7 @@
 					return response;
 				}
 				return fetch(request).then((response) => {
-					if (request.method === 'GET') {
+					if (request.method === 'GET' && response.status === 200) {
 						var copy = response.clone();
 						caches.open(cacheVersion).then((cache) => {
 							cache.put(request, copy);
